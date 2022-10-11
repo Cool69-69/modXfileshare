@@ -38,7 +38,7 @@ async def batch(client: Client, message: Message):
     base64_string = await encode(string)
     tnlink =  get_shortlink(f"https://telegram.me/{client.username}?start={base64_string}")
     print (tnlink)
-    await (link = tnlink)
+    await (link==tnlink)
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
     await second_message.reply_text(f"<b>Here is your link</b>\n\n{link}", quote=True, reply_markup=reply_markup)
 
@@ -60,6 +60,6 @@ async def link_generator(client: Client, message: Message):
     base64_string = await encode(f"get-{msg_id * abs(client.db_channel.id)}")
     tnlink = get_shortlink(f"https://telegram.me/{client.username}?start={base64_string}")
     print (tnlink)
-    await (link = tnlink)
+    await (link == tnlink)
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
     await channel_message.reply_text(f"<b>Here is your link</b>\n\n{link}", quote=True, reply_markup=reply_markup)
