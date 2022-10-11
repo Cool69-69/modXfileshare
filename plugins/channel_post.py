@@ -9,7 +9,7 @@ from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON
 from helper_func import encode
 
 @Bot.on_message(filters.private & filters.user(ADMINS) & ~filters.command(['start','users','broadcast','batch','genlink','stats']))
-	@@ -27,26 +27,10 @@ async def channel_post(client: Client, message: Message):
+	
     base64_string = await encode(string)
     link = await get_shortlink(f"https://telegram.me/{client.username}?start={base64_string}")
 
